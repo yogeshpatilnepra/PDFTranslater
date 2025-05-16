@@ -19,13 +19,10 @@ import androidx.core.content.ContextCompat
 import com.apisexample.pdftranslatorjetpack.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
 import java.net.URLEncoder
@@ -252,8 +249,10 @@ class MainActivity : AppCompatActivity() {
                 return@withContext translatedText
             }
         } catch (e: Exception) {
+            Toast.makeText(this@MainActivity, "This is check for my comit is woking", Toast.LENGTH_SHORT).show()
             Log.e("Translator", "Translation failed", e)
             throw IOException("Translation failed: ${e.message}")
+
         }
     }
 }
